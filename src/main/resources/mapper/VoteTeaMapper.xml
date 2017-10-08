@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 要和接口名字保持一致 -->
+<mapper namespace="com.zhiyou100.dao.VoteTeaDao">
+	<select id="listVoteTea" resultType="voteTea">
+		SELECT * FROM vote_tea
+	</select>
+	<select id="topEight" resultType="voteTea">
+		SELECT * FROM vote_tea ORDER BY poll DESC limit 0,8
+	</select>
+	<update id="updateVoteTea" parameterType="int">
+		UPDATE vote_tea set poll = poll+1 where id = #{id}
+	</update>
+</mapper>
